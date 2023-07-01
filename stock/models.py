@@ -14,3 +14,8 @@ class StockTienda(models.Model):
     stock = models.CharField(default=0)
     fecha_registro = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f"{self.producto} - {self.marca} - {self.modelo} - {self.tipo}"
+
+
+

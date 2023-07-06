@@ -26,3 +26,6 @@ class Modelo(models.Model):
 
 class Tipo(models.Model):
     N_tipo = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.N_tipo

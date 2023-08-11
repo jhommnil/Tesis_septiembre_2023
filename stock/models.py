@@ -15,7 +15,7 @@ class StockTienda(models.Model):
     fecha_registro = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.producto} - {self.marca}"
+        return f"{self.modelo}"
 
 class IngresoSuministro(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)

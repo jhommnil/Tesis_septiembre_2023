@@ -4,5 +4,5 @@ from venta.models import Venta
 
 #se impleta un clase para mostrar en el administrador de django
 class VentasAdmin(admin.ModelAdmin):
-    list_display = ('stocktienda','modelo','cantidad','fecha',)
+    list_display = ('stocktienda','marca_producto','modelo','cantidad','fecha',)
 admin.site.register(Venta,VentasAdmin)

@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from categorias.views import Listar, AgregarCategoria, EditarCategoria, EliminarCategoria
 
 urlpatterns = [
-    path('', admin.site.urls),
+    path('admin/', admin.site.urls),
+    path('', Listar,name='ListarCT'),
+    path('AgregarCT/', AgregarCategoria, name='AgregarCT'),
+    path('EditarCT/<str:N_producto>', EditarCategoria, name='EditarCT'), 
+    path('EliminarCT/<str:N_producto>',EliminarCategoria, name='EliminarCT'),
 ]
+

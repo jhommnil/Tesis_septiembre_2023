@@ -29,3 +29,4 @@ class Tipo(models.Model):
 
     def __str__(self):
         return self.N_tipo
+    

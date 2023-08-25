@@ -6,7 +6,7 @@
 <br>
 <div class="card">
     <div class="card-header">
-        <a name="" id="" class="btn btn-success" href="{% url 'AgregarCT' %}" role="button">AGREGAR PRODUTO</a>
+        <a name="" id="" class="btn btn-success" href="{% url 'AgregarCTP' %}" role="button">AGREGAR PRODUTO</a>
     </div>
     <div class="card-body">
         <h4 class="card-title"></h4>
@@ -37,7 +37,7 @@
 
 <div class="card">
     <div class="card-header">
-        <a name="" id="" class="btn btn-success" href="{% url 'AgregarCT' %}" role="button">AGREGAR MARCA</a>
+        <a name="" id="" class="btn btn-success" href="{% url 'AgregarCTM' %}" role="button">AGREGAR MARCA</a>
     </div>
     <div class="card-body">
         <h4 class="card-title"></h4>
@@ -52,9 +52,9 @@
                 {% for Marca in marcas%}
                 <tr>
                     <td>{{Marca.N_marca}}</td>
-                    <td style="text-align: right;"><a name="" id="" class="btn btn-info" href="" role="button">Editar</a> 
+                    <td style="text-align: right;"><a name="" id="" class="btn btn-info" href="{% url 'EditarCTM' Marca.N_marca %}" role="button">Editar</a> 
                         | 
-                        <a name="" id="" class="btn btn-danger" href="#" role="button">Eliminar</a>
+                        <a name="" id="" class="btn btn-danger" href="{% url 'EliminarCTM' Marca.N_marca %}" role="button">Eliminar</a>
                     </td>
 
                 </tr>
@@ -69,7 +69,7 @@
 
 <div class="card">
     <div class="card-header">
-        <a name="" id="" class="btn btn-success" href="{% url 'AgregarCT' %}" role="button">AGREGAR MODELO</a>
+        <a name="" id="" class="btn btn-success" href="{% url 'AgregarCTMD' %}" role="button">AGREGAR MODELO</a>
     </div>
     <div class="card-body">
         <h4 class="card-title"></h4>
@@ -85,9 +85,9 @@
                 <tr>
                     <td>{{Modelo.N_modelo}}</td>
                     <td style="text-align: right;">
-                        <a name="" id="" class="btn btn-info" href="" role="button">Editar</a> 
+                        <a name="" id="" class="btn btn-info" href="{%url 'EditarCTMD' Modelo.N_modelo%}" role="button">Editar</a> 
                         | 
-                        <a name="" id="" class="btn btn-danger" href="" role="button">Eliminar</a>
+                        <a name="" id="" class="btn btn-danger" href="{%url 'EliminarCTMD' Modelo.N_modelo%}" role="button">Eliminar</a>
                     </td>
 
                 </tr>
@@ -101,7 +101,7 @@
 
 <div class="card">
     <div class="card-header">
-        <a name="" id="" class="btn btn-success" href="{% url 'AgregarCT' %}" role="button">AGREGAR TIPO</a>
+        <a name="" id="" class="btn btn-success" href="{% url 'AgregarCTT' %}" role="button">AGREGAR TIPO</a>
     </div>
     <div class="card-body">
         <h4 class="card-title"></h4>
@@ -116,9 +116,9 @@
                 {% for Tipo in tipos%}
                 <tr>
                     <td>{{Tipo.N_tipo}}</td>
-                    <td style="text-align: right;"><a name="" id="" class="btn btn-info" href="" role="button">Editar</a> 
+                    <td style="text-align: right;"><a name="" id="" class="btn btn-info" href="{%url 'EditarCTT' Tipo.N_tipo%}" role="button">Editar</a> 
                         | 
-                        <a name="" id="" class="btn btn-danger" href="#" role="button">Eliminar</a>
+                        <a name="" id="" class="btn btn-danger" href="{% url 'EliminarCTT' Tipo.N_tipo %}" role="button">Eliminar</a>
                     </td>
 
                 </tr>

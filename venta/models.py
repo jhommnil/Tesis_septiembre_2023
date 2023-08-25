@@ -27,3 +27,4 @@ class Venta(models.Model):
             messages.error(None, f"Error al realizar la venta: {e}")
     def _str_(self):
         return f"Stock: {self.stocktienda} - Marca: {self.marca_producto} - Modelo: {self.modelo} - Cantidad: {self.cantidad} - Fecha: {self.fecha}"
+    

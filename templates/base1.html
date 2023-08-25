@@ -13,14 +13,27 @@
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
 </head>
+<style>
+  
+  body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #3498db, #9ae73c); /* Colores degradados */
+      z-index: -1; /* Colocar detrás del contenido */
+  }
+</style>
 
 <body>
-    <nav class="navbar navbar-expand navbar-light bg-light">
-        <div class="nav navbar-nav">
-            <a class="nav-item nav-link" href="#">Inicio</a>
-            <a class="nav-item nav-link" href="#">Categorias</a>
-            <a class="nav-item nav-link" href="#">Stock</a>
-            <a class="nav-item nav-link" href="#">Venta</a>
+    <nav class="navbar navbar-expand navbar-light bg-dark " >
+        <div class="nav navbar-nav" >
+            <a class="nav-item nav-link font-weight-bold text-white" href="{% url 'Inicio'%}">INICIO</a>
+            <a class="nav-item nav-link font-weight-bold text-white" href="{% url 'ListarCT' %}">CATEGORIA</a>
+            <a class="nav-item nav-link font-weight-bold text-white" href="{% url 'ListarSTOCK' %}">STOCK</a>
+            <a class="nav-item nav-link font-weight-bold text-white" href="{% url 'ListarVenta' %}">VENTA</a>
 
         </div>
     </nav>

@@ -12,19 +12,15 @@ class Venta(models.Model):
     fecha = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
-        try:
-            # Verificar si hay suficiente stock del producto antes de realizar la venta
-            if self.cantidad > self.modelo.stock:
-                raise ValueError("No hay suficiente stock del producto")
-
-            # Actualizar el stock después de la venta
+        if self.cantidad > self.modelo.stock:
+            self.error_message = "No hay suficiente stock del producto para realizar la venta."
+            return False  # Indicate that the sale wasn't successful
+        else:
             self.modelo.stock -= self.cantidad
             self.modelo.save()
-
             super(Venta, self).save(*args, **kwargs)
-        except ValueError as e:
-            # Capturamos la excepción y mostramos un mensaje en el administrador
-            messages.error(None, f"Error al realizar la venta: {e}")
-    def _str_(self):
-        return f"Stock: {self.stocktienda} - Marca: {self.marca_producto} - Modelo: {self.modelo} - Cantidad: {self.cantidad} - Fecha: {self.fecha}"
+            return True  # Indicate that the sale was successful
+    
+    def __str__(self):
+        return f"Stock: {self.stocktienda} - Marca: {self.marca_producto} - Modelo: {self.modelo} - Cantidad: {self.cantidad} - Fecha: {self.fecha}"
     

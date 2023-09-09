@@ -24,14 +24,14 @@ from stock.views import AgregarStockTienda
 from stock.views import EditarStockTienda
 from stock.views import EliminarStockTienda
 from .views import Inicio
-from venta.views import ListarVenta, AgregarVenta
+from venta.views import ListarVentas, AgregarVenta, EditarVenta, EliminarVenta
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',Inicio,name='Inicio'),
     #Update de los modulos
     path('ListarCT/', Listar,name='ListarCT'),
     path('ListarSTOCK/',ListarStock,name='ListarSTOCK'),
-    path('ListarVenta/',ListarVenta,name='ListarVenta'),
+    path('ListarVenta/',ListarVentas,name='ListarVenta'),
     #Create de los modulos
     path('AgregarCTP/', AgregarCategoria, name='AgregarCTP'),
     path('AgregarCTM/', AgregarCategoriaMarca, name='AgregarCTM'),
@@ -45,11 +45,13 @@ urlpatterns = [
     path('EditarCTMD/<str:N_modelo>', EditarCategoriaModelo, name='EditarCTMD'),
     path('EditarCTT/<str:N_tipo>', EditarCategoriaTipo, name='EditarCTT'),  
     path('EditarSTOCK/<int:id>', EditarStockTienda, name='EditarSTOCK'),  
+    path('EditarVenta/<int:id>', EditarVenta, name='EditarVenta'), 
     #Delete de los modulos
     path('EliminarCT/<str:N_producto>',EliminarCategoria, name='EliminarCT'),
     path('EliminarCTM/<str:N_marca>',EliminarCategoriaMarca, name='EliminarCTM'),
     path('EliminarCTMD/<str:N_modelo>',EliminarCategoriaModelo, name='EliminarCTMD'),
     path('EliminarCTT/<str:N_tipo>',EliminarCategoriaTipo, name='EliminarCTT'),
     path('EliminarSTOCK/<int:id>',EliminarStockTienda, name='EliminarSTOCK'),
+    path('EliminarVenta/<int:id>',EliminarVenta, name='EliminarVenta'),
 ]
 

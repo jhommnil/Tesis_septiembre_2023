@@ -1,15 +1,20 @@
 {% extends "base1.html" %}
 
-{% block titulo %} Lista de Venta {% endblock %}
+{% block titulo %} Lista de Ventas {% endblock %}
 
 {% block contenido %}
 <br>
 <div class="card">
     <div class="card-header">
-        <a name="" id="" class="btn btn-success" href="{% url 'AgregarVenta' %}" role="button">AGREGAR PRODUCTO</a>
+        <a name="" id="" class="btn btn-success" href="{% url 'AgregarVenta' %}" role="button"> GERAR VENTA</a>
     </div>
     <div class="card-body">
         <h4 class="card-title"></h4>
+        {% if error_message %}
+        <div class="alert alert-danger" role="alert">
+            {{ error_message }}
+        </div>
+        {% endif %}
         <table class="table">
             <thead>
                 <tr>
@@ -18,25 +23,17 @@
                     <th>Modelo</th>
                     <th>Cantidad</th>
                     <th>Fecha de registro</th>
-                    <th style="text-align: right;">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                {% for StockTienda in stocktienda %}
-
+                {% for venta in ventas %}
                 <tr>
-                    <td>{{ Venta.producto.N_producto}}</td>
-                    <td>{{ Venta.marca.N_marca }}</td>
-                    <td>{{ Venta.modelo.N_modelo}}</td>
-                    <td>{{ Venta.stock}}</td>
-                    <td>{{ Venta.fecha_registro|date:"d/m/Y H:i:s" }}</td>
-                    <td style="text-align: right;">
-                        <a name="" id="" class="btn btn-info" href="" role="button">Editar</a> 
-                        | 
-                        <a name="" id="" class="btn btn-danger" href="" role="button">Eliminar</a>
-                    </td>
+                    <td>{{ venta.stocktienda.N_producto }}</td>
+                    <td>{{ venta.marca_producto.N_marca }}</td>
+                    <td>{{ venta.modelo.modelo.N_modelo }}</td>
+                    <td>{{ venta.cantidad }}</td>
+                    <td>{{ venta.fecha|date:"d/m/Y H:i:s" }}</td>
                 </tr>
-
                 {% endfor %}
             </tbody>
         </table>

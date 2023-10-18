@@ -15,7 +15,7 @@ Including another URLconf
 """
 #se realiza las importaciones dependiendo a los necesitado
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from categorias.views import Listar, AgregarCategoria,AgregarCategoriaMarca, AgregarCategoriaModelo,AgregarCategoriaTipo
 from categorias.views import EditarCategoriaMarca, EditarCategoria, EditarCategoriaModelo, EditarCategoriaTipo
 from categorias.views import EliminarCategoria,EliminarCategoriaMarca,EliminarCategoriaModelo,EliminarCategoriaTipo
@@ -23,11 +23,14 @@ from stock.views import ListarStock
 from stock.views import AgregarStockTienda
 from stock.views import EditarStockTienda
 from stock.views import EliminarStockTienda
-from .views import Inicio
+from .views import Inicio, Index
 from venta.views import ListarVentas, AgregarVenta, EditarVenta, EliminarVenta
 urlpatterns = [
+
     path('admin/', admin.site.urls),
-    path('',Inicio,name='Inicio'),
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('', Index,name='index'),
+    path('inicio/',Inicio,name='Inicio'),
     #Update de los modulos
     path('ListarCT/', Listar,name='ListarCT'),
     path('ListarSTOCK/',ListarStock,name='ListarSTOCK'),
